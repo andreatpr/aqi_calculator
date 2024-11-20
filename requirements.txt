@@ -1,0 +1,8 @@
+xgboost==2.1.2
+joblib==1.4.2
+numpy==2.1.2
+streamlit==1.40.1
+requests==2.32.3
+beautifulsoup4==4.12.3
+scikit-learn==1.5.2
+scikit-optimize==0.10.2
