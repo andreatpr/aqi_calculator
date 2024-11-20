@@ -5,8 +5,8 @@ import streamlit as st
 import requests
 from bs4 import BeautifulSoup
 
-scaler = joblib.load('scaler_arreglado.pkl')
-target_scaler = joblib.load('scaler_target_arreglado.pkl')
+scaler = joblib.load('./pkls/scaler_arreglado.pkl')
+target_scaler = joblib.load('./pkls/scaler_target_arreglado.pkl')
 
 class Data:
     def __init__(self, co, no2, o3, pm10, pm2_5, so2,
@@ -36,7 +36,7 @@ def create_data(co, no2, o3, pm10, pm2_5, so2,
 
 def predict(data):
     print(data)
-    model = joblib.load('modelo_optimizado_2.pkl')
+    model = joblib.load('./pkls/modelo_optimizado_2.pkl')
     data.replace([np.inf, -np.inf], np.nan, inplace=True)
     data.fillna(data.mean(), inplace=True)
     timestamprn = pd.Timestamp.now()
@@ -144,5 +144,7 @@ def main():
         district = next(d for d in districts if d["name"] == selected_district)
         predict_aqi(district)
 
+    st.write("verifying")
+    
 if __name__ == "__main__":
     main()
