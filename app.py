@@ -143,8 +143,6 @@ def main():
     if st.button("🔍 Predict AQI"):
         district = next(d for d in districts if d["name"] == selected_district)
         predict_aqi(district)
-
-    st.write("verifying")
     
 if __name__ == "__main__":
     main()
